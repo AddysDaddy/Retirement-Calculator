@@ -1,0 +1,630 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 main">
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_welcome" data-toggle="tab">Welcome</a></li>
+        <li><a href="#tab_aboutme" data-toggle="tab">About Me</a></li>
+        <li><a href="#tab_savings" data-toggle="tab">Savings</a></li>
+        <li><a href="#tab_retirement" data-toggle="tab">Retirement</a></li>
+        <li><a href="#tab_advanced" data-toggle="tab">Advanced</a></li>
+      </ul>
+      <div class="panel panel-default tab-content">
+        <div class="tab-pane active" id="tab_welcome">
+          <div class="row">
+            <div class="col-xs-6 welcome">
+              <p>
+                Inspired by a recent <a
+                  href="https://www.reddit.com/r/personalfinance/comments/44bu60/how_to_get_a_1m_retirement_an_explanation_of_15/">Reddit
+                  post on "How to get a $1M retirement: an explanation of "15% or
+                  more" for retirement savings"</a>, I became curious about my own retirement.  I started asking questions like:
+                <ul class="">
+                  <li>Is $1M enough for my retirement?</li>
+                  <li>Is saving 15% enough for retirement?</li>
+                  <li>Am I saving enough for retirement?</li>
+                  <li>When can I retire?</li>
+                  <li>How long will my retirement savings last?</li>
+                  <li>How much more do I need to save?</li>
+                </ul>
+                It got really complicated really quickly, so I simplified it all down to a single question:
+                <blockquote class="text-info"> How does my budget now compare to my retirement budget?  </blockquote>
+                Once I could answer this question, I can figure out the rest so I created this calculator and I hope you find it useful.
+              </p>
+              <a class="btn btn-success nextbtn" href="#inAge" data-tab="#tab_aboutme" data-toggle="tab" role="button">Get Started</a>
+            </div>
+            <div class="col-xs-6">
+              <h4>Key Takeaways </h4> 
+              <ul class="h3"><small>
+                <li>How much you need to save depends on how much you want to spend.</li>
+                <li>The best estimate for retirement spending is to compare with how much you're spending now.</li>
+                <li>Time is your friend.</li>
+              </small></ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab_aboutme">
+          <div class="row">
+            <ul class="col-xs-5 nav nav-list">
+              <li><a href="#inAge" data-toggle="tab">Age <span class="badge"><span class="badgeData">35</span></span>
+                <input id="fieldAge" type="text" class="form-control slider" value="35" data-slider-min="18" data-slider-max="105" data-slider-step="1" data-slider-value="35" 
+                       data-slider-orientation="horizontal" data-slider-selection="none" data-slider-tooltip="hide">
+                </a>
+              </li>
+              <li><a href="#inIncome" data-toggle="tab">Annual Income 
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="fieldIncome" type="number" class="form-control" min="0" step="1000" value="52000">
+                  <span class="input-group-addon">per year</span>
+                </div>
+                </a>
+              </li>
+              <li><a href="#inEducation" data-toggle="tab">Education Level 
+                <select id="fieldEducation" class="form-control"> 
+                  <option>Less than High School</option>
+                  <option selected="selected">High School</option>
+                  <option>Some College / No Degree</option>
+                  <option>Associate's Degree</option>
+                  <option>Bachelor's Degree</option>
+                  <option>Master's Degree</option>
+                  <option>Doctoral Degree</option>
+                  <option>Professional</option>
+                </select></a>
+              </li>
+              <li><a href="#inFilingStatus" data-toggle="tab">Tax Filing Status 
+                <select id="fieldFilingStatus" class="form-control"> 
+                  <option data-taxbracket="Single" selected="selected">Single</option>
+                  <option data-taxbracket="MarriedFilingJointly" >Married filing jointly</option>
+                  <option data-taxbracket="MarriedFilingSeparately" >Married filing separately</option>
+                  <option data-taxbracket="HeadOfHousehold" >Head of household</option>
+                  <option data-taxbracket="MarriedFilingJointly" >Qualifying Widow(er) With Dependent Child</option>
+                </select></a>
+              </li>
+              <li><a href="#inState" data-toggle="tab">State of Residence 
+                <select id="fieldState" class="form-control"> 
+                  <option data-state="AL">AL - Alabama</option> 
+                  <option data-state="AK">AK - Alaska</option> 
+                  <option data-state="AZ">AZ - Arizona</option> 
+                  <option data-state="AR">AR - Arkansas</option> 
+                  <option data-state="CA" selected="selected">CA - California</option>
+                  <option data-state="CO">CO - Colorado</option> 
+                  <option data-state="CT">CT - Connecticut</option> 
+                  <option data-state="DE">DE - Delaware</option> 
+                  <option data-state="FL">FL - Florida</option> 
+                  <option data-state="GA">GA - Georgia</option>
+                  <option data-state="HI">HI - Hawaii</option> 
+                  <option data-state="ID">ID - Idaho</option> 
+                  <option data-state="IL">IL - Illinois</option> 
+                  <option data-state="IN">IN - Indiana</option> 
+                  <option data-state="IA">IA - Iowa</option>
+                  <option data-state="KS">KS - Kansas</option> 
+                  <option data-state="KY">KY - Kentucky</option> 
+                  <option data-state="LA">LA - Louisiana</option> 
+                  <option data-state="ME">ME - Maine</option> 
+                  <option data-state="MD">MD - Maryland</option>
+                  <option data-state="MA">MA - Massachusetts</option> 
+                  <option data-state="MI">MI - Michigan</option> 
+                  <option data-state="MN">MN - Minnesota</option> 
+                  <option data-state="MS">MS - Mississippi</option> 
+                  <option data-state="MO">MO - Missouri</option>
+                  <option data-state="MT">MT - Montana</option> 
+                  <option data-state="NE">NE - Nebraska</option> 
+                  <option data-state="NV">NV - Nevada</option> 
+                  <option data-state="NH">NH - New Hampshire</option> 
+                  <option data-state="NJ">NJ - New Jersey</option>
+                  <option data-state="NM">NM - New Mexico</option> 
+                  <option data-state="NY">NY - New York</option> 
+                  <option data-state="NC">NC - North Carolina</option> 
+                  <option data-state="ND">ND - North Dakota</option> 
+                  <option data-state="OH">OH - Ohio</option>
+                  <option data-state="OK">OK - Oklahoma</option> 
+                  <option data-state="OR">OR - Oregon</option> 
+                  <option data-state="PA">PA - Pennsylvania</option> 
+                  <option data-state="RI">RI - Rhode Island</option> 
+                  <option data-state="SC">SC - South Carolina</option>
+                  <option data-state="SD">SD - South Dakota</option> 
+                  <option data-state="TN">TN - Tennessee</option> 
+                  <option data-state="TX">TX - Texas</option> 
+                  <option data-state="UT">UT - Utah</option> 
+                  <option data-state="VT">VT - Vermont</option>
+                  <option data-state="VA">VA - Virginia</option> 
+                  <option data-state="WA">WA - Washington</option> 
+                  <option data-state="WV">WV - West Virginia</option> 
+                  <option data-state="WI">WI - Wisconsin</option> 
+                  <option data-state="WY">WY - Wyoming</option>
+                  <option>-</option>
+                </select></a>
+              </li>
+            </ul>
+            <div class="col-xs-7">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="inAge">
+                  <h2>Age </h2> 
+                  <p class="h3"><small>Compound interest is the most powerful force in the universe. -Albert Einstein</small></p>
+                  <p>
+                    The retirement calculator will use your current age to determine how many years of saving you have ahead of you.  The earlier you start saving, the more you will have in retirement. 
+                    You can see your savings in the chart below on the <strong><span style='color: lightgreen'>light green line</span></strong>.  
+                    From now until you retire, <a href="https://en.wikipedia.org/wiki/Compound_interest">compounding interest</a> quickly grows your retirement savings.
+                  </p>
+                  <p>
+                    Put time to work for you by starting your retirement savings as soon as possible.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inIncome" data-tab="#tab_aboutme" data-toggle="tab" role="button">Next: Income</a>
+                </div>
+                <div class="tab-pane" id="inIncome">
+                  <h2>Income </h2>
+                  <p class="h3"><small>Show me the money. -Jerry Maguire</small></p>
+                  <p>
+                    A key question to ask is: will I maintain my lifestyle in retirement?
+                  </p>
+                  <p>
+                    To answer that, this calculator starts with your current income and gives you a rough idea of what your current budget for living expenses is.
+                    Then, based on how much you are saving, the calculator will estimate your budget in retirement.
+                  </p>
+                  <p>
+                    You can then compare your budget now with your retirement budget to and figure out whether you will be traveling the world and dining out in style, or if you'll be moving to a
+                    more affordable location and hoping your social security checks come in so you have enough money to eat.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inEducation" data-tab="#tab_aboutme" data-toggle="tab" role="button">Next: Education Level</a>
+                </div>
+                <div class="tab-pane" id="inEducation">
+                  <h2>Education Level </h2>
+                  <p class="h3"><small>There is only one good, knowledge, and one evil, ignorance. -Socrates</small></p>
+                  <a href="#modalBox" data-toggle="modal" data-target="#modalBox" 
+                    data-title="Income By Education Level" 
+                    data-citation="<i>The College Payoff: Educations, Occupations, Lifetime Earnings</i> by the Georgetown University Center on Education and the Workforce" 
+                    data-citationlink="https://cew.georgetown.edu/wp-content/uploads/2014/11/collegepayoff-complete.pdf">
+                    <%= image_tag "incomeByEducationLevel.png", class: "img-responsive pull-right" %>
+                  </a>
+                  <p>
+                    A <a href="https://cew.georgetown.edu/wp-content/uploads/2014/11/collegepayoff-complete.pdf">Georgetown University study</a> shows average income trajectories by educational level.
+                    Higher educational levels mean higher incomes and higher lifetime earnings.
+                    One thing to consider is incomes peak between the mid-30s and low-50s, and then drops downward a bit which could make saving during those last working years more difficult.  
+                  </p>
+                  <p>
+                    Using your current age, current income and educational level, this retirement calculator approximates changes in your income until you retire.
+                    You can see your income over time in the chart below on the <strong><span style='color: lightgrey'>light grey line</span></strong>.  
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inFilingStatus" data-tab="#tab_aboutme" data-toggle="tab" role="button">Next: Federal Tax Filing Status</a>
+                </div>
+                <div class="tab-pane" id="inFilingStatus">
+                  <h2>Federal Taxes </h2>
+                  <p class="h3"><small>The hardest thing to understand in the world is the income tax. -Albert Einstein</small></p>
+                  <a href="#modalBox" data-toggle="modal" data-target="#modalBox" 
+                    data-title="2016 Tax Brackets" 
+                    data-citation="<i>2016 Tax Brackets</i> from the Tax Foundation" 
+                    data-citationlink="http://taxfoundation.org/article/2016-tax-brackets">
+                    <%= image_tag "http://taxfoundation.org/sites/taxfoundation.org/files/docs/TAX%20BRACKETS.png", class: "img-responsive pull-right" %>
+                  </a>
+                  <p>
+                    Everyone pays taxes.  Uncle Sam uses our taxes to pay for roads, schools, military and police.  How much we pay in taxes is based on our Federal Tax Filing Status.  
+                    Your Tax Filing Status determines which <a href="http://taxfoundation.org/article/2016-tax-brackets">tax brackets</a> apply to you.  
+                  </p>
+                  <p>
+                    Most people will be paying significantly less, or even no, taxes in retirement.  
+                    To estimate your budget for your current lifestyle, this calculator subtracts out estimated Federal taxes from your income.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inState" data-tab="#tab_aboutme" data-toggle="tab" role="button">Next: State Taxes</a>
+                </div>
+                <div class="tab-pane" id="inState">
+                  <h2>State Taxes </h2>
+                  <p class="h3"><small>We are all are equal, but some pay higher tax rates than others. -Jeff Rich</small></p>
+                  <a href="#modalBox" data-toggle="modal" data-target="#modalBox" 
+                    data-title="State Taxes" 
+                    data-citation="<i>State Individual Income Tax Rates and Brackets for 2016</i> from the Tax Foundation" 
+                    data-citationlink="http://taxfoundation.org/article/state-individual-income-tax-rates-and-brackets-2016">
+                    <%= image_tag "http://taxfoundation.org/sites/taxfoundation.org/files/docs/PIT-01.png", class: "img-responsive pull-right" %>
+                  </a>
+                  <p>
+                    Most states take taxes out from your hard earned income too.  
+                    Like Federal Taxes, you will never get to spend this money so this calculator subtracts out State taxes, if applicable, from your income to approximate your take home pay.
+                    This calculator uses the top 2016 state income tax brackets according to the 
+                    <a href="http://taxfoundation.org/article/state-individual-income-tax-rates-and-brackets-2016">Tax Foundation</a> where 
+                    <a href="http://taxfoundation.org/sites/taxfoundation.org/files/docs/PIT-01.png">this image to the right</a> highlights differences in state income tax rates.
+                  </p>
+                  <p>
+                    After subtracting Federal and State taxes from your income, 
+                    we calculate your approximate take home pay in the chart below on the <strong><span style='color: darkgreen'>dark green line</span></strong>.  
+                  </p>
+                  <p>
+                    This <strong><span style='color: darkgreen'>Approximate Take Home Pay line</span></strong> is a very important line on the chart because, this line represents your budget of how much money 
+                    you currently live on.  Ideally, <strong>you want to at least maintain your lifestyle during retirement with a budget that is similar to, or preferably more than, what you have now.</strong>
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inNestEgg" data-tab="#tab_savings" data-toggle="tab" role="button">Next: Your Nest Egg</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab_savings">
+          <div class="row">
+            <ul class="col-xs-5 nav nav-list">
+              <li><a href="#inNestEgg" data-toggle="tab">How much do you currently have saved for retirement? 
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="fieldNestEgg" type="number" min="0" step="1000" class="form-control" value="45000">
+                </div>
+                </a>
+              </li>
+              <li><a href="#inSavings" data-toggle="tab">From your income, how much do you save towards retirement each year? 
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="fieldSavings" type="number" min="0" step="1000" class="form-control" value="0">
+                  <span class="input-group-addon savingsType">Pre Tax Dollars</span>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="fieldSavings_afterTax" type="number" min="0" step="1000" class="form-control" value="0">
+                  <span class="input-group-addon savingsType">After Tax Dollars</span>
+                </div>
+                </a>
+              </li>
+              <li><a href="#inContributions" data-toggle="tab">How much is otherwise contributed to your retirement each year? 
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input id="fieldContributions" type="number" min="0" step="1000" class="form-control" value="0">
+                </div>
+                </a>
+              </li>
+            </ul>
+            <div class="col-xs-7">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="inNestEgg">
+                  <h2>Retirement Nest Egg </h2>
+                  <p class="h3"><small>A journey of a thousand miles must begin with a single step. –Lao Tzu</small></p>
+                  <p>
+                    A <a href="http://www.transamericacenter.org/docs/default-source/resources/center-research/16th-annual/tcrs2015_sr_retirement_throughout_the_ages.pdf">May 2015 TransAmerica survey</a> 
+                    found American workers had the following average retirement savings:
+                  </p>
+                  <table class="table table-bordered center">
+                    <tr>
+                      <th>Age Range</th> <th>Average Retirement Savings</th>
+                    </tr>
+                    <tr>
+                      <td>20-29</td> <td>$16,000</td>
+                    </tr>
+                    <tr>
+                      <td>30-39</td> <td>$45,000</td>
+                    </tr>
+                    <tr>
+                      <td>40-49</td> <td>$63,000</td>
+                    </tr>
+                    <tr>
+                      <td>50-59</td> <td>$117,000</td>
+                    </tr>
+                    <tr>
+                      <td>60-69</td> <td>$172,000</td>
+                    </tr>
+                  </table>
+                  <p>
+                    Time and <a href="https://en.wikipedia.org/wiki/Compound_interest">compounding interest</a> will grow your savings as shown in the chart below on the 
+                    <strong><span style='color: lime'>light green line</span></strong>.  
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inSavings" data-tab="#tab_savings" data-toggle="tab" role="button">Next: Savings</a>
+                </div>
+                <div class="tab-pane" id="inSavings">
+                  <h2>Saving </h2>
+                  <p class="h3"><small>Let him who would enjoy a good future waste none of his present. –Roger Babson</small></p>
+                  <p>
+                    The money you save for retirement will be either <strong>pre-tax</strong> or <strong>after tax</strong> money.  
+                  </p>
+                    <dl class="dl-horizontal">
+                      <dt><a href="http://wiki.fool.com/Pre-tax" target="_blank">Pre-tax money</a></dt>
+                      <dd>is money set aside for retirement before paying Federal and State taxes.  Pre-tax money is typically not paid to you, but instead directly deposited into a retirement account.
+                        A <a href="https://en.wikipedia.org/wiki/401(k)" target="_blank">401(k)</a> or
+                        <a href="https://en.wikipedia.org/wiki/Traditional_IRA" target="_blank">Traditional IRA</a> are common accounts for pre-tax retirement savings.
+                        Money withdrawn from a pre-tax account during retirement will be taxed as income, and will grow with
+                        <a href="http://www.investopedia.com/terms/t/taxdeferred.asp" target="_blank">taxes deferred</a> until retirement which can be a huge benefit.
+                      </dd>
+                      <dt>After tax money</dt>
+                      <dd>is money in your paycheck after Federal and State taxes have been taken out.  One common after tax retirement savings option is the 
+                        <a href="https://en.wikipedia.org/wiki/Roth_IRA" target="_blank">Roth IRA</a> which can allow your savings to grow 
+                        <a href="http://www.fool.com/money/allaboutiras/allaboutiras06.htm" target="_blank">tax free</a>.
+                      </dd>
+                    </dl>
+                  <p>
+                    The money you are saving will be subtracted from your income so that your budget reflects your actual living expenses.  
+                    This allows you to more accurately compare your living expenses now to your future budget.  After all, you won't need to save for retirement in retirement so this lets you compare how much
+                    you're spending now with how much you can spend in retirement.
+                  </p>
+                  <p>
+                    Add up your <strong>pre-tax</strong> and <strong>after tax</strong> savings towards retirement each year and enter those into this calculator on the left.  
+                    We will assume you'll continue saving the same amount going forward each year.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inContributions" data-tab="#tab_savings" data-toggle="tab" role="button">Next: Other Retirement Contributions</a>
+                </div>
+                <div class="tab-pane" id="inContributions">
+                  <h2>Other Retirement Contributions </h2>
+                  <p class="h3"><small>To enjoy a long, comfortable retirement, save more today. -Suze Orman</small></p>
+                  <p>
+                    Many companies encourage employees to save for retirement with a <a href="https://en.wikipedia.org/wiki/Employer_Matching_Program" target="_blank">401(k) matching program</a> 
+                    where your company puts money into your 401(k) when you save into your 401(k).  If your company offers a 401(k) matching program, you should always save enough to get the largest 
+                    possible contribution from your company.  This is <em>free money</em> your company gives you just to save for retirement.
+                  </p>
+                  <p>
+                    Another, less popular option, is the <a href="https://en.wikipedia.org/wiki/Pension" target="_blank">pension</a>. 
+                  </p>
+                  <p>
+                    Add up the total amount your company contributes toward your retirement each year.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inSocialSecurity" data-tab="#tab_retirement" data-toggle="tab" role="button">Next: Social Security</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="tab_retirement">
+          <div class="row">
+            <ul class="col-xs-5 nav nav-list">
+              <li class="active"><a href="#inSocialSecurity" data-toggle="tab">Monthly Social Security Income 
+                <div class="input-group">
+                  <span class="input-group-addon"> $ </span>
+                  <input id="fieldSocialSecurity" type="number" min="0" step="25" class="form-control" value="1300">
+                  <span class="input-group-addon">per month starting at age <span id="fieldSocialSecurityStart">67</span> </span>
+                </div>
+                </a>
+              </li>
+              <li><a href="#inRetirementAge" data-toggle="tab">Retirement Age <span class="badge"><span class="badgeData">67</span></span>
+                <input id="fieldRetirementAge" type="text" class="form-control slider" value="" data-slider-min="18" data-slider-max="70" data-slider-step="1" data-slider-value="67" 
+                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
+              </li>
+              <li><a href="#inLifeExpectancy" data-toggle="tab">Life Expectancy  <span class="badge"><span class="badgeData">103</span></span>
+                <input id="fieldLifeExpectancy" type="text" class="form-control slider" value="" data-slider-min="65" data-slider-max="125" data-slider-step="1" data-slider-value="103" 
+                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
+              </li>
+              <li><a href="#inWithdrawalRate" data-toggle="tab">Withdrawal Rate <span class="badge"><span class="badgeData">3</span>%</span>
+                <input id="fieldWithdrawalRate" type="text" class="form-control slider" value="" data-slider-min="2" data-slider-max="10" data-slider-step="0.25" data-slider-value="3" 
+                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                <div>
+                  Withdrawing <strong><span id="" class="monthlyRetirementIncomeWithInflation"></span></strong> (<span id="" class="annualRetirementIncomeWithInflation"></span>) from savings during retirement.
+                </div>
+                </a>
+              </li>
+              <li><a href="#inOwn" data-toggle="tab">Monthy Housing Payment
+                <div class="form-inline">
+                  <input id="fieldHousingPayment" type="text" class="form-control" value="950">
+                  <select id="fieldHousingType" class="form-control"> 
+                    <option data-target="showHousingToggle" data-show="housingRent" selected="selected">Rent</option>
+                    <option data-target="showHousingToggle" data-show="housingMortgage">Mortgage</option>
+                  </select>
+                </div>
+                </a>
+              </li>
+            </ul>
+            <div class="col-xs-7">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="inSocialSecurity">
+                  <h2>Social Security </h2>
+                  <p class="h3"><small>The question isn’t at what age I want to retire, it’s at what income.  -George Foreman</small></p>
+                    <a href="https://www.ssa.gov/retire/estimator.html"><img class="img-responsive logo pull-right" src="https://www.ssa.gov/framework/images/icons/png/logo-fb-share.png"></a>
+                  </h2>
+                  <p>
+                    Most American workers will receive social security benefits in retirement.  Social Security is a safety net to ensure that retired Americans do not live in poverty.
+                    Your social security benefit varies depending on your income, how long you have worked and when you start collecting social security.  
+                  </p>
+                  <p>
+                    Get an <a href="https://www.ssa.gov/retire/estimator.html">estimate of your Social Security benefits</a> from the Social Security Administration, enter them here and select an age to start
+                    your social security benefits.
+                  </p>
+                  <div id="socialSecurityOptions" class="subtable">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input name="fieldYearStart" type="radio">&nbsp;$
+                      </span>
+                      <input type="text" class="form-control" placeholder="1340" data-start="62">
+                      <span class="input-group-addon">per month starting at age 62</span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input name="fieldYearStart" type="radio">&nbsp;$
+                      </span>
+                      <input type="text" class="form-control" placeholder="1930" data-start="67">
+                      <span class="input-group-addon">per month starting at age 67</span>
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input name="fieldYearStart" type="radio">&nbsp;$
+                      </span>
+                      <input type="text" class="form-control" placeholder="2358" data-start="70">
+                      <span class="input-group-addon">per month starting at age 70</span>
+                    </div>
+                  </div>
+                  <p>
+                    Social Security is unlikely to maintain your current lifestyle, but it should ensure you don't retire in poverty.
+                    The chart below shows how your retirement income changes based on when you start your social security benefits.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inRetirementAge" data-tab="#tab_retirement" data-toggle="tab" role="button">Next: Retirement Age</a>
+                </div>
+                <div class="tab-pane" id="inRetirementAge">
+                  <h2>Retirement Age </h2>
+                  <p class="h3"><small>Happiness: a good bank account, a good cook and a good digestion. -<a href="#">Rousseau</a></small></p>
+                  <p>
+                    When you stop working has a huge affect on your retirement income.  An early retirement means less time for your retirement savings to grow, and your savings will need to last longer.
+                  </p>
+                  <p>
+                    This calculator assumes you withdraw roughly the same amount each year for retirement, 
+                    <a href="https://www.bogleheads.org/wiki/Models_of_spending_as_retirement_progresses#Stages_of_retirement_models" target="_blank">adjusting for expenses over time based on your age</a>.  
+                    In general, retirees spend more during their early retirement as they travel, pay off mortgages, and children become less dependant on assistance from parents.  
+                    By around 75 or 80 years of age, retirees spend significantly less money during retirement.  After that, retirement spending grows with increasing medical expenses.
+                  </p>
+                  <p>
+                    Basically, the earlier you retire, the less money you will have to spend. 
+                    If you retire before you start collecting social security, you may need to withdraw more from your savings which could increase your chances of running out of money.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inLifeExpectancy" data-tab="#tab_retirement" data-toggle="tab" role="button">Next: Life Expectancy</a>
+                </div>
+                <div class="tab-pane" id="inLifeExpectancy">
+                  <h2>Life Expectancy </h2>
+                  <p class="h3"><small>There's never enough time to do all the nothing you want. -<i>Calvin and Hobbes</i></small></p>
+                  <p>
+                    While we have some control over when we decide to retire, we have much less control over how long we will live.
+                    The <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people" target="_blank">oldest verified living person</a> lived for over <strong>122 years</strong>.  
+                    According to a <a href="http://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54_14.pdf" target="_blank">Center for Disease Control (CDC) study</a>, 
+                    over 2% of people live to 100.  That is 1 of every 50 people will live to 100.  And, those who live to 100 can expect to live another 2.5 years.  
+                  </p>
+                  <p>
+                    Planning to live to 103 years of age and having your savings last until then is a good start.  You do not want to run out of money and die in poverty.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inWithdrawalRate" data-tab="#tab_retirement" data-toggle="tab" role="button">Next: Withdrawal Rate</a>
+                </div>
+                <div class="tab-pane" id="inWithdrawalRate">
+                  <h2>Withdrawal Rate </h2>
+                  <p class="h3"><small>Money is better than poverty, if only for financial reasons. -Woody Allen</small></p>
+                  <p>
+                    The <a href="https://www.bogleheads.org/wiki/Safe_withdrawal_rates">"safe withdrawal rate"</a> is considered to be <a href="https://www.google.com/?hl=en#hl=en&q=safe+withdrawal+rate">4%</a>.
+                    However, a 4% withdrawal rate may not be safe for everyone now.
+                    The safe withdrawal rate was calculated as the amount of money someone can withdraw each year (4%) from their savings so that it is unlikely to run out of money over 30 years.
+                  </p>
+                  <p>
+                    The 4% value was a great rule of thumb when most people retired at 60, with 30 years of savings, and lived to 80 or 85.  
+                    Basically, retirees were more likely to die before they ran out of money. 
+                    Today, people tend to live longer now with <a href="http://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54_14.pdf" target="_blank">more than 1 out of every 50 people</a> living over 100 years.  
+                    If you retire at 65 and run out of money 30 years later at 95 years of age, you could be living very miserably in poverty for the last 5 years of your life.
+                  </p>
+                  <p>
+                    A safer withdrawal rate is now as low as 3% for most people.  For example, if you retire at 65 with a 3% withdrawal rate, your retirement savings will last until you are 100 years old.  
+                    By comparison, if you retire at 65 with a 4% withdrawal rate, your retirement savings will only last until you are 91 years old.  
+                    You'll avoid dying in poverty by living more frugally in retirement.
+                  </p>
+                  <a class="btn btn-success nextbtn" href="#inOwn" data-tab="#tab_retirement" data-toggle="tab" role="button">Next: Housing Payments</a>
+                </div>
+                <div class="tab-pane" id="inOwn">
+                  <h2>Housing </h2>
+                  <p class="h3"><small>Owning a home is a keystone of wealth... -Suze Orman</small></p>
+                  <div id="fieldHousingMortgagePayOff" class="well pull-right">
+                    <div class="showHousingToggle housingRent text-center">
+                      <i class="fa fa-home fa-5x"></i>
+                      <p class="h4"><small>The home should be the treasure chest of living. <br>-Le Corbusier</small></p>
+                    </div>
+                    <div class="showHousingToggle housingMortgage">
+                      Assuming you pay off your house in <span class="badgeData">30</span> years...
+                      <br>
+                      <input id="fieldHousingPaidOff" type="text" class="form-control slider" value="30" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="30" 
+                             data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                      <br>
+                    </div>
+                  </div>
+                  <p>
+                    Housing is one of the single largest expenses for any person whether working or retired.  If you rent your home forever, you must budget for paying rent every year.
+                  </p>
+                  <p>
+                    A better approach for retirement is to put your housing payment towards a home so that your house is paid off in 15 to 30 years.  
+                    Once your house is paid off, you won't have a housing payment to budget for.
+                    Without a housing payment, your retirement savings will go much further <em>and</em>, if you need to, you can use your house for income in retirement.
+                  </p>
+                  <p>
+                    If you do have a mortgage, a <strong><span style='color: purple'>purple line</span></strong> on chart below shows your living expenses excluding your mortgage.  
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="tab_advanced">
+          <div class="row">
+            <ul class="col-xs-5 nav nav-list">
+              <li class="active"><a href="#inROI" data-toggle="tab">Return on Investment <span class="badge"><span class="badgeData">7</span>%</span>
+                <input id="fieldROI" type="text" class="form-control slider" value="7" data-slider-min="0" data-slider-max="15" data-slider-step="0.25" data-slider-value="7" 
+                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                </a>
+              </li>
+              <li><a href="#inRetirementROI" data-toggle="tab">Retirement ROI <span class="badge"><span class="badgeData">4</span>%</span>
+                  <input id="fieldRetirementROI" type="text" class="form-control slider" value="" data-slider-min="0" data-slider-max="9" data-slider-step="0.25" data-slider-value="4" 
+                         data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                </a>
+              </li>
+              <li><a href="#inInflation" data-toggle="tab">Annual Inflation Rate <span class="badge"><span class="badgeData">4</span>%</span>
+                <input id="fieldInflationRate" type="text" class="form-control slider" value="" data-slider-min="0" data-slider-max="10" data-slider-step="0.25" data-slider-value="4" 
+                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                </a>
+              </li>
+            </ul>
+            <div class="col-xs-7">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="inROI">
+                  <h2>Return on Investment </h2>
+                  <p class="h3"><small>In any investment, you expect to have fun and make money.  -Michael Jordan</small></p>
+                  <p>
+                    Your savings should be invested so that it can grow as quickly as possible without too much risk.  Historically, the stock market provides an average return on investment 
+                    (<a href="http://www.investopedia.com/terms/r/returnoninvestment.asp" target="_blank">ROI</a>) of  
+                    <a href="http://www.thesimpledollar.com/where-does-7-come-from-when-it-comes-to-long-term-stock-returns/" target="_blank">7%</a> each year over the long term.
+                  </p>
+                  <p class="small">
+                    The cited article actually quotes Warren Buffet who estimates a 7% return including inflation.  This calculator defaults to 7% <i>before</i> inflation to be more conservative.
+                    You can read more about <a href="https://www.bogleheads.org/wiki/Historical_and_expected_returns" target=_blank>historical returns</a>, 
+                    but keep in mind that "past performance is not an indicator of future results".  Feel free to adjust the estimated return slider in accordance with your expected returns.
+                  </p>
+                </div>
+                <div class="tab-pane" id="inRetirementROI">
+                  <h2>Safer Investments During Retirement </h2>
+                  <p class="h3"><small>An investment in knowledge pays the best interest. -Benjamin Franklin</small></p>
+                  <p>
+                    Risk is dangerous in retirement.  A poorly timed market crash or recession can severely impact your retirement savings.
+                    To avoid these risks, many retirees switch their retirement savings over to much safer investments like inflation protected treasury bonds that pay a much lower interest rate.
+                    Less risk, less return.
+                  </p>
+                  <p>
+                    To err on the side of caution, this calculator defaults to assuming your retirement savings will keep pace with inflation with little or no real return after inflation.
+                  </p>
+                  <p class="small">
+                    By default, this calculator uses a more conservative number but, technically, safe investments like US Treasury Bills return a little more, about 0.5% higher, than the inflation rate.
+                    You can read more about <a href="https://www.bogleheads.org/wiki/Historical_and_expected_returns" target=_blank>historical returns</a>, 
+                    but keep in mind that "past performance is not an indicator of future results".  Feel free to adjust the estimated return slider in accordance with your expected returns.
+                  </p>
+                </div>
+                <div class="tab-pane" id="inInflation">
+                  <h2>Inflation </h2>
+                  <p class="h3"><small>A nickel ain’t worth a dime anymore. –Yogi Berra</small></p>
+                  <p>
+                    Unfortunately, the same compounding that grew your nest egg savings quickly also works against you in retirement as 
+                    <a href="https://en.wikipedia.org/wiki/Inflation" target="_blank">inflation</a>.  Over time, the value of each dollar you haved saved up diminishes by a small amount.  Historically,
+                    the average inflation rate in the US is <a href="http://inflationdata.com/Inflation/Inflation_Rate/Long_Term_Inflation.asp" target="_blank">3.22%</a> which means prices double every 
+                    20 years or so.  Since inflation works against you, this calculator defaults to a slightly more cautious inflation rate of 4%.
+                  </p>
+                  <p>
+                    A 4% annual inflation rate means that if you spend $10,000 this year on living expenses, in 18 years you will need $20,000 for the exact same living expenses!  As a result, you will
+                    withdraw more money from savings each year just to maintain your lifestyle.
+                  </p>
+                  <p>
+                    In order to make things easier, this calculator accounts for inflation so you can compare <i>in today's dollars</i> your current budget to your retirement budget.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <img src=""></img>
+          <h4 class="cite small"><a href=""></a></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron wider">
+    <div id="adBlock" class="adBlock pull-right well">
+      Ad Block
+    </div>
+    <h2>Your Retirement Savings <span id="uhoh_box" class="text-danger" style="display:none;">will run out when you are <span></span></span></h2>
+    <div id="nestEggChart"></div>
+    <p>Chart and Summary of retirement go here...</p>
+    <p>...</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  </div>
+</div>

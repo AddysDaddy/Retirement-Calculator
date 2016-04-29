@@ -1,0 +1,171 @@
+// Place all the styles related to the calculator controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Panel navigation
+ * Hide default border to remove 1px line.
+ */
+div.panel li.active {
+  background-color: #d8d8d8;
+}
+
+div.panel li a:hover {
+  background-color: #e8e8d8;
+}
+
+div.panel {
+  padding-bottom: 8px;
+}
+
+/*
+ * Main content
+ */
+.welcome {
+  margin-top: 8px;
+}
+
+.main {
+  padding: 20px;
+}
+
+.main .page-header {
+  margin-top: 0;
+}
+
+.main div.panel {
+}
+
+.main .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.main img {
+  width:  360px;
+  height: auto;
+}
+
+.main img.logo {
+  width:  200px;
+  height: auto;
+}
+
+.main h2 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+
+.main p.h3 {
+  margin-top: 0px;
+}
+
+.main span.input-group-addon.savingsType {
+  min-width: 140px;
+}
+
+.main div.subtable {
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
+#fieldHousingMortgagePayOff {
+  width: 240px; 
+}
+
+#fieldHousingMortgagePayOff .housingMortgage {
+  display:none;
+}
+
+/*
+ * Modal content
+ */
+div.modal-dialog {
+  width: 1024px;
+}
+
+div.modal-dialog img {
+  height: auto;
+  width: 992px;
+  max-width: 992px;
+}
+
+/*
+ * JumboTron
+ */
+div.jumbotron.wider {
+  padding-bottom:   16px;
+  padding-left:     24px;
+  padding-right:    24px;
+  padding-top:      16px;
+}
+
+.jumbotron h2 {
+  margin-top: 0;
+}
+
+#socialSecurityOptions {
+}
+
+/*
+ * Nest Egg Chart
+ */
+#nestEggChart {
+  height:  500px;
+  width:   750px; 
+}
+
+/*
+ * Ad Block
+ */
+#adBlock {
+  height:  250px;
+  width:   300px; 
+}
+
+
+/*
+ * Sliders
+ */
+
+.slider {
+  width: 200px;
+}
+
+/*
+ * Footer
+ */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}

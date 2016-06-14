@@ -4,7 +4,7 @@
 
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab_welcome" data-toggle="tab">Welcome</a></li>
-        <li><a href="#tab_aboutme" data-toggle="tab">About Me</a></li>
+        <li><a href="#tab_aboutme" data-toggle="tab">About You</a></li>
         <li><a href="#tab_savings" data-toggle="tab">Savings</a></li>
         <li><a href="#tab_retirement" data-toggle="tab">Retirement</a></li>
         <li><a href="#tab_advanced" data-toggle="tab">Advanced</a></li>
@@ -26,7 +26,7 @@
                   <li>How long will my retirement savings last?</li>
                   <li>How much more do I need to save?</li>
                 </ul>
-                It got really complicated really quickly, so I simplified it all down to a single question:
+                It was far too complicated trying to answer those questions, so I boiled it all down to a single question:
                 <blockquote class="text-info"> How does my budget now compare to my retirement budget?  </blockquote>
                 Once I could answer this question, I can figure out the rest so I created this calculator and I hope you find it useful.
               </p>
@@ -376,9 +376,6 @@
               <li><a href="#inWithdrawalRate" data-toggle="tab">Withdrawal Rate <span class="badge"><span class="badgeData">3</span>%</span>
                 <input id="fieldWithdrawalRate" type="text" class="form-control slider" value="" data-slider-min="2" data-slider-max="10" data-slider-step="0.25" data-slider-value="3" 
                        data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
-                <div>
-                  Withdrawing <strong><span id="" class="monthlyRetirementIncomeWithInflation"></span></strong> (<span id="" class="annualRetirementIncomeWithInflation"></span>) from savings during retirement.
-                </div>
                 </a>
               </li>
               <li><a href="#inOwn" data-toggle="tab">Monthy Housing Payment
@@ -461,8 +458,8 @@
                   <p>
                     While we have some control over when we decide to retire, we have much less control over how long we will live.
                     The <a href="https://en.wikipedia.org/wiki/List_of_the_verified_oldest_people" target="_blank">oldest verified living person</a> lived for over <strong>122 years</strong>.  
-                    According to a <a href="http://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54_14.pdf" target="_blank">Center for Disease Control (CDC) study</a>, 
-                    over 2% of people live to 100.  That is 1 of every 50 people will live to 100.  And, those who live to 100 can expect to live another 2.5 years.  
+                    According to a <a href="http://www.cdc.gov/nchs/data/nvsr/nvsr54/nvsr54_14.pdf" target="_blank">2006 Center for Disease Control (CDC) report</a>, 
+                    over 2% of people live to 100.  That means 1 out of every 50 people will live to 100.  And, those who live to 100 can expect to live another 2.5 years.  
                   </p>
                   <p>
                     Planning to live to 103 years of age and having your savings last until then is a good start.  You do not want to run out of money and die in poverty.
@@ -600,6 +597,75 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-2 results">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <div class="small">
+            Your Budget Now
+          </div>
+          <div class="panel-title">
+            <strong><span id="" class="monthlyIncomeWithInflation"></span></strong> 
+          </div>
+        </div>
+        <div class="panel-body">
+          <span id="" class="annualIncomeWithInflation"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 results">
+      <div id="result_retirementbudget" class="panel panel-default text-center">
+        <div class="panel-heading">
+          <div class="small">
+            Your Retirement Budget 
+          </div>
+          <div class="panel-title">
+            <strong><span class="monthlyRetirementIncomeWithInflation"></span></strong> 
+          </div>
+        </div>
+        <div class="panel-body">
+          <span class="annualRetirementIncomeWithInflation"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 results">
+      <div id="result_budgetcomparison" class="panel panel-danger text-center ">
+        <div class="panel-heading">
+          <div class="small">
+            <span class="budget_notenough">Your retirement budget will <strong>decrease</strong> by</span>
+            <span class="budget_barelyenough" style="display:none;">Your retirement budget will be <strong>similar</strong> with an extra</span>
+            <span class="budget_enough" style="display:none;">Your retirement budget will <strong>increase</strong> by</span>
+          </div>
+          <div class="panel-title">
+            <strong><span class="budget_difference monthlyDifference text-danger"></span></strong> 
+          </div>
+        </div>
+        <div id="" class="panel-body">
+          <strong><span class="budget_difference annualDifference text-danger"></span></strong> 
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 results">
+      <div class="panel panel-default text-center">
+        <div id="savings_status" class="panel-body bg-danger">
+          <div class="small">
+            <span class="savings_notenough">Your savings will run out</span>
+            <span class="savings_enough" style="display:none;">Your savings is enough</span> 
+          </div>
+          <span class="savings_notenough">
+            <i class="fa fa-calendar-times-o fa-3x" aria-hidden="true"></i>
+          </span>
+          <span class="savings_enough" style="display:none;">
+            <i class="fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
+          </span>
+          <div class="small">
+            <span id="result_agebroke" class="savings_notenough"> when you are <span></span></span>
+            <span class="savings_enough" style="display:none;">for your life expectancy</span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal fade" id="modalBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -617,14 +683,14 @@
       </div>
     </div>
   </div>
+  <div id="adBar" class="adBar center-block well">
+    Ad Block
+  </div>
   <div class="jumbotron wider">
     <div id="adBlock" class="adBlock pull-right well">
       Ad Block
     </div>
     <h2>Your Retirement Savings <span id="uhoh_box" class="text-danger" style="display:none;">will run out when you are <span></span></span></h2>
     <div id="nestEggChart"></div>
-    <p>Chart and Summary of retirement go here...</p>
-    <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
   </div>
 </div>

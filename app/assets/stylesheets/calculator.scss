@@ -40,7 +40,7 @@ div.panel li a:hover {
   background-color: #e8e8d8;
 }
 
-div.panel {
+.main div.panel {
   padding-bottom: 8px;
 }
 
@@ -52,7 +52,10 @@ div.panel {
 }
 
 .main {
-  padding: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
 }
 
 .main .page-header {
@@ -104,13 +107,25 @@ div.panel {
 }
 
 /*
+ * Results content
+ */
+.results {
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+}
+
+
+
+/*
  * Modal content
  */
-div.modal-dialog {
+#modalBox div.modal-dialog {
   width: 1024px;
 }
 
-div.modal-dialog img {
+#modalBox div.modal-dialog img {
   height: auto;
   width: 992px;
   max-width: 992px;
@@ -144,6 +159,11 @@ div.jumbotron.wider {
 /*
  * Ad Block
  */
+#adBar {
+  height:  90px;
+  width:   728px; 
+}
+
 #adBlock {
   height:  250px;
   width:   300px; 
@@ -168,4 +188,7 @@ div.jumbotron.wider {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
+}
+
+#modalDisclaimer {
 }

@@ -67,6 +67,7 @@ var computeAll = _.debounce( function() {
   computeIncomeCurve();
   computeNestEgg();
   computeRetirement();
+  updateResults();
 
   drawChart();
 }, 500);
@@ -101,6 +102,8 @@ function computeIncomeCurve() {
   for( var i = retirement_age; i <= lifeExpectancy; i++ ) {
     personalizedProfile['curvedIncome'].push( 0 );
   }
+  //$('.annualIncomeWithInflation').html( "$ " + Math.round( personalizedProfile['takeHomePay'][0] ).toFixed(0) + " /yr" );
+  //$('.monthlyIncomeWithInflation').html( "$ " + Math.round( personalizedProfile['takeHomePay'][0] / 12 ).toFixed(0) + " /mo" );
 }
 
 function incomeCurve( target_age ) {
@@ -250,8 +253,8 @@ function computeRetirement() {
 
   var current_nestEgg = personalizedProfile['nestEgg'][personalizedProfile['nestEgg'].length - 1];
   var withdrawal_initial = calcAnnualRetirementIncome(current_nestEgg);
-  $('.annualRetirementIncomeWithInflation').html( "$" + Math.round( withdrawal_initial / Math.pow( inflationRate, retirement_age - current_age ) ).toFixed(0) + "/yr" );
-  $('.monthlyRetirementIncomeWithInflation').html( "$" + Math.round( withdrawal_initial / Math.pow( inflationRate, retirement_age - current_age ) / 12 ).toFixed(0) + "/mo" );
+  //$('.annualRetirementIncomeWithInflation').html( "$" + Math.round( withdrawal_initial / Math.pow( inflationRate, retirement_age - current_age ) ).toFixed(0) + "/yr" );
+  //$('.monthlyRetirementIncomeWithInflation').html( "$" + Math.round( withdrawal_initial / Math.pow( inflationRate, retirement_age - current_age ) / 12 ).toFixed(0) + "/mo" );
 
   var socialSecurity_start = parseInt( $('#fieldSocialSecurityStart').text() );
   var socialSecurity_income = parseFloat( $('#fieldSocialSecurity').val() ) * 12 || 0;
@@ -259,6 +262,7 @@ function computeRetirement() {
   var i = retirement_age;
   var budgetMin = Infinity;
   var budgetMax = -Infinity;
+  personalizedProfile['yearsToRetirement'] = retirement_age - current_age;
   while( i <= lifeExpectancy ) {
     var withdrawal = Math.round(withdrawal_initial * RetirementIncomeTargetRateByAge(i) * Math.pow( inflationRate, i - retirement_age ) * 100)/100;
 
@@ -278,11 +282,56 @@ function computeRetirement() {
 
     i++;
   }
+  //$('.annualRetirementIncomeWithInflation').html( "$ " + Math.round( personalizedProfile['retirementIncome'][personalizedProfile['yearsToRetirement']] ).toFixed(0) + " /yr" );
+  //$('.monthlyRetirementIncomeWithInflation').html( "$ " + Math.round( personalizedProfile['retirementIncome'][personalizedProfile['yearsToRetirement']] / 12 ).toFixed(0) + " /mo" );
 }
 
 function calcAnnualRetirementIncome( current_nestEgg ) {
   var withdrawalRate = $('#fieldWithdrawalRate').data('slider').getValue() / 100;
   return Math.round( current_nestEgg * withdrawalRate * 100 ) / 100;
+}
+
+function updateResults() {
+  var hasMortgage = $('#fieldHousingType option:selected').data('show') == 'housingMortgage';
+  var livingBudget = personalizedProfile['takeHomePay'][0] - 12 * parseFloat($('#fieldHousingPayment').val());
+  var current_budget = personalizedProfile['takeHomePay'][0];
+  if( hasMortgage ) {
+    current_budget -= 12 * parseFloat($('#fieldHousingPayment').val());
+  }
+
+  var annualIncomeWithInflation = Math.round( current_budget ).toFixed(0);
+  var monthlyIncomeWithInflation = Math.round( current_budget / 12 ).toFixed(0);
+  var annualRetirementIncomeWithInflation = Math.round( personalizedProfile['retirementIncome'][personalizedProfile['yearsToRetirement']] ).toFixed(0);
+  var monthlyRetirementIncomeWithInflation = Math.round( personalizedProfile['retirementIncome'][personalizedProfile['yearsToRetirement']] / 12 ).toFixed(0);
+
+  $('.annualIncomeWithInflation').html( "$ " + annualIncomeWithInflation + " /yr" );
+  $('.monthlyIncomeWithInflation').html( "$ " + monthlyIncomeWithInflation + " /mo" );
+  $('.annualRetirementIncomeWithInflation').html( "$ " + annualRetirementIncomeWithInflation + " /yr" );
+  $('.monthlyRetirementIncomeWithInflation').html( "$ " + monthlyRetirementIncomeWithInflation + " /mo" );
+
+  var annualDifference = Math.abs( annualIncomeWithInflation - annualRetirementIncomeWithInflation );
+  var monthlyDifference = Math.abs( monthlyIncomeWithInflation - monthlyRetirementIncomeWithInflation );
+  $('.annualDifference').html( "$ " + annualDifference + " /yr" );
+  $('.monthlyDifference').html( "$ " + monthlyDifference + " /mo" );
+  $('#result_retirementbudget,#result_budgetcomparison').removeClass("panel-danger panel-warning panel-success").removeClass("text-danger text-warning text-success");
+  $('.budget_difference').removeClass("text-danger text-warning text-success");
+  $('.budget_notenough,.budget_barelyenough,.budget_enough').hide();
+  if( monthlyRetirementIncomeWithInflation < monthlyIncomeWithInflation ) {
+    // Retirement budget is short
+    $('#result_retirementbudget,#result_budgetcomparison').addClass("panel-danger text-danger");
+    $('.budget_notenough').show();
+    $('.budget_difference').addClass("text-danger");
+  } else if ( monthlyRetirementIncomeWithInflation < 1.1 * monthlyIncomeWithInflation ) {
+    // Retirement budget is close, and can use a bigger buffer
+    $('#result_retirementbudget,#result_budgetcomparison').addClass("panel-warning text-warning");
+    $('.budget_barelyenough').show();
+    $('.budget_difference').addClass("text-warning");
+  } else {
+    // Retirement budget looks good!
+    $('#result_retirementbudget,#result_budgetcomparison').addClass("panel-success text-success");
+    $('.budget_enough').show();
+    $('.budget_difference').addClass("text-success");
+  }
 }
 
 /* Charting Functions
@@ -334,8 +383,14 @@ function drawChart() {
     graphArray.push( row );
   }
   $('#uhoh_box').hide();
+  $('.savings_notenough').hide();
+  $('.savings_enough').show();
+  $('#savings_status').removeClass('bg-danger bg-success').addClass('bg-success');
   if( ageBroke ) {
-    $('#uhoh_box').show().find('span').html( ageBroke );
+    $('#uhoh_box,#result_agebroke').show().find('span').html( ageBroke );
+    $('.savings_notenough').show();
+    $('.savings_enough').hide();
+    $('#savings_status').removeClass('bg-success').addClass('bg-danger');
   }
 
   var chartData = google.visualization.arrayToDataTable(graphArray);
@@ -390,6 +445,15 @@ function drawChart() {
 
   chartObj.draw(chartData, options);
 };
+
+/* jQuery Add-Ons
+ */
+$.fn.AddCommasToNumbers = function(){ 
+    return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+}
+
 
 /* Data Object
  */

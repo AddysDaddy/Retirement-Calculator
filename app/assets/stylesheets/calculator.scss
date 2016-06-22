@@ -85,8 +85,17 @@ div.panel li a:hover {
   margin-bottom: 0px;
 }
 
+.main blockquote {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .main p.h3 {
   margin-top: 0px;
+}
+
+.main ul.h3 li {
+  padding-bottom: 4px;
 }
 
 .main span.input-group-addon.savingsType {

@@ -10,6 +10,7 @@ group :production do
   gem 'thin'
   gem 'pg'
   gem 'puma'
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets

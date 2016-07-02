@@ -27,19 +27,25 @@
                   <li>How much more do I need to save?</li>
                 </ul>
               </p>
+              <p>
+                It was far too complicated trying to answer those questions, so I simplified retirement planning down to a single question:
+                <blockquote class="text-info"> How does my budget now compare to my retirement budget?  </blockquote>
+                Once you make this comparison, everything else falls into place.  Basically, you will know whether or not you can maintain your current lifestyle through retirement.
+                So, I created this calculator to answer that question, and I hope you find it useful.
+              </p>
             </div>
             <div class="col-xs-6 welcome">
-              It was far too complicated trying to answer those questions, so I simplified retirement planning down to a single question:
-              <blockquote class="text-info"> How does my budget now compare to my retirement budget?  </blockquote>
-              Once you make this comparison, everything else falls into place.  I created this calculator to answer that question, and I hope you find it useful.
-              <h4>Key Takeaways </h4> 
+              <h4>Keys to a successful retirement</h4> 
               <ul class="h3"><small>
+                <li>Be able to spend as much as you do now, in retirement.</li>
                 <li>Time is your friend.  Start saving now, if you haven't already.</li>
                 <li>Save more now to spend more later.</li>
-                <li>Owning your home helps a lot with your retirement.</li>
+                <li>Owning your home helps a lot with your retirement budget.</li>
               </small></ul>
-              <a class="btn btn-success nextbtn" href="#inAge" data-tab="#tab_aboutme" data-toggle="tab" role="button">Get Started</a>
             </div>
+          </div>
+          <div class="row text-center">
+            <a class="btn btn-success nextbtn" href="#inAge" data-tab="#tab_aboutme" data-toggle="tab" role="button" style="width:25%;">Get Started</a>
           </div>
         </div>
         <div class="tab-pane" id="tab_aboutme">
@@ -361,7 +367,7 @@
                 <div class="input-group">
                   <span class="input-group-addon"> $ </span>
                   <input id="fieldSocialSecurity" type="number" min="0" step="25" class="form-control" value="1300">
-                  <span class="input-group-addon">per month starting at age <span id="fieldSocialSecurityStart">67</span> </span>
+                  <span class="input-group-addon">per month at <span id="fieldSocialSecurityStart">67</span> </span>
                 </div>
                 </a>
               </li>
@@ -549,12 +555,35 @@
                   <p>
                     Your savings should be invested so that it can grow as quickly as possible without too much risk.  Historically, the stock market provides an average return on investment 
                     (<a href="http://www.investopedia.com/terms/r/returnoninvestment.asp" target="_blank">ROI</a>) of  
-                    <a href="http://www.thesimpledollar.com/where-does-7-come-from-when-it-comes-to-long-term-stock-returns/" target="_blank">7%</a> each year over the long term.
+                    <a href="http://www.thesimpledollar.com/where-does-7-come-from-when-it-comes-to-long-term-stock-returns/" target="_blank">7%</a><sup>1, 2</sup> each year over the long term.
                   </p>
+                  <p>
+                    Select the type of investment most applicable to your retirement savings:
+                  </p>
+                  <div id="investmentOptions" class="subtable">
+                    <div class="radio">
+                      <input name="investmentType" type="radio" value="1.0">
+                      <label> Cash or Short Term Government Bonds - 1% </label>
+                    </div>
+                    <div class="radio">
+                      <input name="investmentType" type="radio" value="4.5">
+                      <label> Long Term Government Bonds - 4.5% </label>
+                    </div>
+                    <div class="radio">
+                      <input name="investmentType" type="radio" value="7">
+                      <label> Stock Market - 7% </label>
+                    </div>
+                  </div>
+
                   <p class="small">
-                    The cited article actually quotes Warren Buffet who estimates a 7% return including inflation.  This calculator defaults to 7% <i>before</i> inflation to be more conservative.
+                    <sup>1</sup> The cited article actually quotes Warren Buffet who estimates a 7% return including inflation.  This calculator defaults to 7% <i>before</i> inflation to be more conservative.
                     You can read more about <a href="https://www.bogleheads.org/wiki/Historical_and_expected_returns" target=_blank>historical returns</a>, 
                     but keep in mind that "past performance is not an indicator of future results".  Feel free to adjust the estimated return slider in accordance with your expected returns.
+                  </p>
+                  <p class="small">
+                  <sup>2</sup> See also, this <a href="http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html" target="_blank">analysis</a> showing worst case scenarios of approximately: 
+                    7% return for S&P 500, 1% for Short Term Government Bonds, and 4.7% for Long Term Government Bonds.  This calculator rounds down to be more conservative.
+                    Feel free to adjust the estimated return slider in accordance with your expected returns.
                   </p>
                 </div>
                 <div class="tab-pane" id="inRetirementROI">

@@ -24,6 +24,11 @@ $('#fieldRetirementAge').on('slide', function(event) {
   $('#fieldLifeExpectancy').slider('setValue', $('#fieldLifeExpectancy').data('slider').getValue());
 });
 
+$('#fieldROI').on('slide', function(event) {
+  $('#investmentOptions div.radio input').prop('checked', false);
+});
+
+
 $('#modalBox').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
   var modal = $(this);
@@ -56,6 +61,16 @@ $('#fieldHousingType').on('change', function(event) {
   targets.hide();
   console.log( $(option).data('show') );
   targets.filter( '.' + $(option).data('show') ).show();
+});
+
+/* Investment Options ROI Sub-Table */
+$('#investmentOptions div.radio input[type=radio]').change(function (event) {
+  var val = $(this).val();
+  if( val ) {
+    $('#fieldROI').slider('setValue', val);
+    $('#fieldROI').parents('li').find('span.badgeData').html( val );
+  }
+  computeAll();
 });
 
 $('.form-control').change( function() {

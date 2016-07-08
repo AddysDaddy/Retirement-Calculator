@@ -412,7 +412,9 @@ function drawChart() {
 
   var options = {
     curveType: 'function',
-    legend: { position: 'bottom' },
+    legend: { position: 'top',
+              maxLines: 2
+    },
     series: { 0: {
                 color: 'lightgrey',
                 visibleInLegend: false,

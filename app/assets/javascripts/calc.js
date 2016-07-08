@@ -492,7 +492,7 @@ var personalizedProfile = {
 
 $(function() {
   console.log( $.browser.mobile );
-  if( $.browser.mobile || true ) {
+  if( $.browser.mobile ) {
     $('#mobilealert').show();
   }
 });

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div id="mobilealert" class="alert alert-warning col-md-12 mobileonly" style="display:none;">
-      Sorry for any inconvenience, but if you have trouble with the sliders please try using a non-mobile browser.  I'll try to fix that soon!
+      Sorry for any inconvenience, but if you have trouble try using a non-mobile browser.  I'll try to fix that soon!
     </div>
     <div class="col-md-12 main">
 
@@ -55,8 +55,8 @@
           <div class="row">
             <ul class="col-xs-5 nav nav-list">
               <li><a href="#inAge" data-toggle="tab">Age <span class="badge"><span class="badgeData">35</span></span>
-                <input id="fieldAge" type="text" class="form-control slider" value="35" data-slider-min="18" data-slider-max="105" data-slider-step="1" data-slider-value="35" 
-                       data-slider-orientation="horizontal" data-slider-selection="none" data-slider-tooltip="hide">
+                <input id="fieldAge" type="range" class="form-control slider input-sm" value="35" min="18" max="105" step="1"
+                       data-slider-min="18" data-slider-max="105" data-slider-step="1" data-slider-value="35" data-slider-orientation="horizontal" data-slider-selection="none" data-slider-tooltip="hide">
                 </a>
               </li>
               <li><a href="#inIncome" data-toggle="tab">Annual Income 
@@ -375,16 +375,16 @@
                 </a>
               </li>
               <li><a href="#inRetirementAge" data-toggle="tab">Retirement Age <span class="badge"><span class="badgeData">67</span></span>
-                <input id="fieldRetirementAge" type="text" class="form-control slider" value="" data-slider-min="18" data-slider-max="70" data-slider-step="1" data-slider-value="67" 
-                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
+                <input id="fieldRetirementAge" type="range" class="form-control slider input-sm" value="67" min="18" max="70" step="1" size="3"
+                       data-slider-min="18" data-slider-max="70" data-slider-step="1" data-slider-value="67" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
               </li>
               <li><a href="#inLifeExpectancy" data-toggle="tab">Life Expectancy  <span class="badge"><span class="badgeData">103</span></span>
-                <input id="fieldLifeExpectancy" type="text" class="form-control slider" value="" data-slider-min="65" data-slider-max="125" data-slider-step="1" data-slider-value="103" 
-                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
+                <input id="fieldLifeExpectancy" type="range" class="form-control slider input-sm" value="103" min="65" max="125" step="1" size="3"
+                       data-slider-min="65" data-slider-max="125" data-slider-step="1" data-slider-value="103" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide"></a>
               </li>
               <li><a href="#inWithdrawalRate" data-toggle="tab">Withdrawal Rate <span class="badge"><span class="badgeData">3</span>%</span>
-                <input id="fieldWithdrawalRate" type="text" class="form-control slider" value="" data-slider-min="2" data-slider-max="10" data-slider-step="0.25" data-slider-value="3" 
-                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                <input id="fieldWithdrawalRate" type="range" class="form-control slider input-sm" value="3" min="2" max="10" step="0.25" size="4"
+                       data-slider-min="2" data-slider-max="10" data-slider-step="0.25" data-slider-value="3" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                 </a>
               </li>
               <li><a href="#inOwn" data-toggle="tab">Monthy Housing Payment
@@ -507,8 +507,8 @@
                     <div class="showHousingToggle housingMortgage">
                       Assuming you pay off your house in <span class="badgeData">30</span> years...
                       <br>
-                      <input id="fieldHousingPaidOff" type="text" class="form-control slider" value="30" data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="30" 
-                             data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                      <input id="fieldHousingPaidOff" type="range" class="form-control slider input-sm" value="30" min="0" max="60" step="1" size="3"
+                             data-slider-min="0" data-slider-max="60" data-slider-step="1" data-slider-value="30" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                       <br>
                     </div>
                   </div>
@@ -534,18 +534,18 @@
           <div class="row">
             <ul class="col-xs-5 nav nav-list">
               <li class="active"><a href="#inROI" data-toggle="tab">Return on Investment <span class="badge"><span class="badgeData">7</span>%</span>
-                <input id="fieldROI" type="text" class="form-control slider" value="7" data-slider-min="0" data-slider-max="15" data-slider-step="0.25" data-slider-value="7" 
-                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                <input id="fieldROI" type="range" class="form-control slider input-sm" value="7" min="0" max="15" step="0.25" size="4"
+                       data-slider-min="0" data-slider-max="15" data-slider-step="0.25" data-slider-value="7" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                 </a>
               </li>
               <li><a href="#inRetirementROI" data-toggle="tab">Retirement ROI <span class="badge"><span class="badgeData">4</span>%</span>
-                  <input id="fieldRetirementROI" type="text" class="form-control slider" value="" data-slider-min="0" data-slider-max="9" data-slider-step="0.25" data-slider-value="4" 
-                         data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                <input id="fieldRetirementROI" type="range" class="form-control slider input-sm" value="4" min="0" max="9" step="0.25" size="4"
+                       data-slider-min="0" data-slider-max="9" data-slider-step="0.25" data-slider-value="4" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                 </a>
               </li>
               <li><a href="#inInflation" data-toggle="tab">Annual Inflation Rate <span class="badge"><span class="badgeData">4</span>%</span>
-                <input id="fieldInflationRate" type="text" class="form-control slider" value="" data-slider-min="0" data-slider-max="10" data-slider-step="0.25" data-slider-value="4" 
-                       data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
+                <input id="fieldInflationRate" type="range" class="form-control slider input-sm" value="4" min="0" max="10" step="0.25" size="4"
+                       data-slider-min="0" data-slider-max="10" data-slider-step="0.25" data-slider-value="4" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="hide">
                 </a>
               </li>
             </ul>

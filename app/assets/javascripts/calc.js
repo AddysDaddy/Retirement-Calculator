@@ -5,10 +5,30 @@ $('.nextbtn').click( function(event) {
   $('a[href="' + $(this).attr('href') + '"]').not('.btn').click();
 });
 
-$('.slider').slider().on('slide', function(event) {
-  computeAll();
-  $(this).parents('li, div.well').find('span.badgeData').html( $(this).data('slider').getValue() );
-}).parents('div.slider').addClass('pull-right');
+$(function() {
+  if( $.browser.mobile ) {
+    $('#mobilealert').show();
+
+    $('.slider').on('change', function(event) {
+      $(this).parents('li, div.well').find('span.badgeData').html( $(this).val() );
+      computeAll();
+    }).addClass('pull-right');
+  } else {
+    $('.slider').slider().on('slide', function(event) {
+      $(this).parents('li, div.well').find('span.badgeData').html( $(this).data('slider').getValue() );
+      computeAll();
+    }).parents('div.slider').addClass('pull-right');
+  }
+});
+
+jQuery.fn.getFieldValue = function(options) {
+  if( $.browser.mobile ) {
+    return Number( $(this).val() );
+  } else {
+    return Number( $(this).data('slider').getValue() );
+  }
+  return null;
+};
 
 $('#fieldAge').on('slide', function(event) {
   // Change min
@@ -16,16 +36,18 @@ $('#fieldAge').on('slide', function(event) {
   $('#fieldRetirementAge').data('slider').max = Math.max( 70, $(this).data('slider').getValue() + 10 );
   // Apply setValue to redraw slider
   $('#fieldRetirementAge').slider('setValue', $('#fieldRetirementAge').data('slider').getValue());
-  computeAll();
+  $('#fieldAge').trigger('change');
 });
 
 $('#fieldRetirementAge').on('slide', function(event) {
   $('#fieldLifeExpectancy').data('slider').min = $(this).data('slider').getValue();
   $('#fieldLifeExpectancy').slider('setValue', $('#fieldLifeExpectancy').data('slider').getValue());
+  $('#fieldLifeExpectancy').trigger('change');
 });
 
 $('#fieldROI').on('slide', function(event) {
   $('#investmentOptions div.radio input').prop('checked', false);
+  $('#fieldROI').trigger('change');
 });
 
 
@@ -74,6 +96,7 @@ $('#investmentOptions div.radio input[type=radio]').change(function (event) {
 });
 
 $('.form-control').change( function() {
+  console.log( "changed!");
   computeAll();
 });
 
@@ -91,9 +114,9 @@ var computeAll = _.debounce( function() {
 /* Income Calculations 
  */
 function computeIncomeCurve() {
-  var current_age = $('#fieldAge').data('slider').getValue();
-  var retirement_age = $('#fieldRetirementAge').data('slider').getValue();
-  var lifeExpectancy = $('#fieldLifeExpectancy').data('slider').getValue();
+  var current_age = $('#fieldAge').getFieldValue();
+  var retirement_age = $('#fieldRetirementAge').getFieldValue();
+  var lifeExpectancy = $('#fieldLifeExpectancy').getFieldValue();
   var annualSavings_pretax = Number($('#fieldSavings').val());
   var annualSavings_aftertax = Number($('#fieldSavings_afterTax').val());
   
@@ -122,7 +145,7 @@ function computeIncomeCurve() {
 }
 
 function incomeCurve( target_age ) {
-  var current_age = $('#fieldAge').data('slider').getValue();
+  var current_age = $('#fieldAge').getFieldValue();
   var current_income = $('#fieldIncome').val();
   var degree = $('#fieldEducation').val();
 
@@ -205,7 +228,7 @@ function IncomeMinusEstimatedTaxes( income ) {
  */
 function RetirementIncomeTargetRateByAge( age ) {
   var curvedIncomeIndexAt60 = 60 - personalizedProfile['currentAge'];
-  var inflationRate = 1 + ($('#fieldInflationRate').data('slider').getValue() / 100);
+  var inflationRate = 1 + ($('#fieldInflationRate').getFieldValue() / 100);
 
   var targetIncomeCurve = retirementIncomeTarget['HighSpending'];
   if( personalizedProfile['curvedIncome'][curvedIncomeIndexAt60] < (75000 * Math.pow(inflationRate, curvedIncomeIndexAt60)) ) {
@@ -229,14 +252,14 @@ function RetirementIncomeTargetRateByAge( age ) {
 
 function computeNestEgg() {
   var current_nestEgg = $('#fieldNestEgg').val();
-  var investmentROI = 1 + ($('#fieldROI').data('slider').getValue() / 100);
+  var investmentROI = 1 + ($('#fieldROI').getFieldValue() / 100);
   var annualSavings = Number($('#fieldSavings').val());
   var annualSavings_aftertax = Number($('#fieldSavings_afterTax').val());
   var annualContributions = Number($('#fieldContributions').val());
 
-  var current_age = $('#fieldAge').data('slider').getValue();
-  var retirement_age = $('#fieldRetirementAge').data('slider').getValue();
-  var lifeExpectancy = $('#fieldLifeExpectancy').data('slider').getValue();
+  var current_age = $('#fieldAge').getFieldValue();
+  var retirement_age = $('#fieldRetirementAge').getFieldValue();
+  var lifeExpectancy = $('#fieldLifeExpectancy').getFieldValue();
   var socialSecurity_start = parseInt( $('#fieldSocialSecurityStart').text() );
   var socialSecurity_income = parseFloat( $('#fieldSocialSecurity').val() ) * 12;
 
@@ -260,11 +283,11 @@ function computeNestEgg() {
 }
 
 function computeRetirement() {
-  var current_age = $('#fieldAge').data('slider').getValue();
-  var retirement_age = $('#fieldRetirementAge').data('slider').getValue();
-  var lifeExpectancy = $('#fieldLifeExpectancy').data('slider').getValue();
-  var retirementROI = 1 + ($('#fieldRetirementROI').data('slider').getValue() / 100);
-  var inflationRate = 1 + ($('#fieldInflationRate').data('slider').getValue() / 100);
+  var current_age = $('#fieldAge').getFieldValue();
+  var retirement_age = $('#fieldRetirementAge').getFieldValue();
+  var lifeExpectancy = $('#fieldLifeExpectancy').getFieldValue();
+  var retirementROI = 1 + ($('#fieldRetirementROI').getFieldValue() / 100);
+  var inflationRate = 1 + ($('#fieldInflationRate').getFieldValue() / 100);
 
   var current_nestEgg = personalizedProfile['nestEgg'][personalizedProfile['nestEgg'].length - 1];
   var withdrawal_initial = calcAnnualRetirementIncome(current_nestEgg);
@@ -302,7 +325,7 @@ function computeRetirement() {
 }
 
 function calcAnnualRetirementIncome( current_nestEgg ) {
-  var withdrawalRate = $('#fieldWithdrawalRate').data('slider').getValue() / 100;
+  var withdrawalRate = $('#fieldWithdrawalRate').getFieldValue() / 100;
   return Math.round( current_nestEgg * withdrawalRate * 100 ) / 100;
 }
 
@@ -358,7 +381,7 @@ $(function() {
 
 var chartObj = undefined;
 function drawChart() {
-  var current_age = $('#fieldAge').data('slider').getValue();
+  var current_age = $('#fieldAge').getFieldValue();
   var hasMortgage = $('#fieldHousingType option:selected').data('show') == 'housingMortgage';
 
   var headings = ['Age', 'Income', 'Savings', 'Retirement Income', 'Approx. Take Home Pay']
@@ -386,7 +409,7 @@ function drawChart() {
                 Math.floor( takeHomePay ), 
               ];
     if( hasMortgage ) {
-      var paidOffIn = $('#fieldHousingPaidOff').data('slider').getValue();
+      var paidOffIn = $('#fieldHousingPaidOff').getFieldValue();
       var totalBudget = Math.floor( takeHomePay ? takeHomePay : 0 ) + Math.floor( retirementIncome ? retirementIncome : 0 );
       var livingBudget = totalBudget - 12 * parseFloat($('#fieldHousingPayment').val());
       if( i > paidOffIn ) {

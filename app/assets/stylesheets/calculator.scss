@@ -189,13 +189,15 @@ div.jumbotron.wider {
  */
 
 .slider {
-  width: 200px;
+  width: 100%;
 }
+/*
 @media screen and (max-device-width: 1024px) {
   input.slider {
-    width: 100px;
+    width: 100%;
   }
 }
+*/
 
 /*
  * Footer

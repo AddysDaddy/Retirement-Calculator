@@ -9,6 +9,10 @@ $(function() {
   if( $.browser.mobile ) {
     $('#mobilealert').show();
 
+    $('.slider').on('input', function(event) {
+      $(this).parents('li, div.well').find('span.badgeData').html( $(this).val() );
+    });
+
     $('.slider').on('change', function(event) {
       $(this).parents('li, div.well').find('span.badgeData').html( $(this).val() );
       computeAll();

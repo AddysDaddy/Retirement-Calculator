@@ -358,12 +358,12 @@ function updateResults() {
   $('#result_retirementbudget,#result_budgetcomparison').removeClass("panel-danger panel-warning panel-success").removeClass("text-danger text-warning text-success");
   $('.budget_difference').removeClass("text-danger text-warning text-success");
   $('.budget_notenough,.budget_barelyenough,.budget_enough').hide();
-  if( monthlyRetirementIncomeWithInflation < monthlyIncomeWithInflation ) {
+  if( Number(monthlyRetirementIncomeWithInflation) < Number(monthlyIncomeWithInflation) ) {
     // Retirement budget is short
     $('#result_retirementbudget,#result_budgetcomparison').addClass("panel-danger text-danger");
     $('.budget_notenough').show();
     $('.budget_difference').addClass("text-danger");
-  } else if ( monthlyRetirementIncomeWithInflation < 1.1 * monthlyIncomeWithInflation ) {
+  } else if ( Number(monthlyRetirementIncomeWithInflation) < 1.1 * Number(monthlyIncomeWithInflation) ) {
     // Retirement budget is close, and can use a bigger buffer
     $('#result_retirementbudget,#result_budgetcomparison').addClass("panel-warning text-warning");
     $('.budget_barelyenough').show();

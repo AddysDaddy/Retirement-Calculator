@@ -83,9 +83,7 @@ $('#socialSecurityOptions input').on('change', function (event) {
 $('#fieldHousingType').on('change', function(event) {
   var option = $(this).find('option:selected');
   var targets = $( '.' + $(option).data('target') );
-  console.log( targets );
   targets.hide();
-  console.log( $(option).data('show') );
   targets.filter( '.' + $(option).data('show') ).show();
 });
 
@@ -100,7 +98,6 @@ $('#investmentOptions div.radio input[type=radio]').change(function (event) {
 });
 
 $('.form-control').change( function() {
-  console.log( "changed!");
   computeAll();
 });
 
